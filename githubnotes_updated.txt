@@ -1,0 +1,302 @@
+Why source control:
+-------------------------------------------------
+- type of backup, archive
+- creating a history or a trail of changes
+- allows for restoration of a state and to compare
+- allows for collaboration/teamwork
+- learning and isolating root of failure
+- code review 
+
+- UML - Models (xml file)
+- share code/ open source project
+-------------------------------------------------
+ Source Control:
+ // 2 types 
+ 1. Centralized - Subversion and CVS
+ - centralized server for a collection of files
+ - network connection is needed to connect to central server
+ 2. Decentralized - git and mecurial 
+ - most operation can be local 
+ 
+ What is Git: 
+ 
+ - can be used as a decentralized system and centralized systems(most people use it as a central server)
+ - git can scale massively 
+ 
+ The git repo:
+ - repo contains files, history and config maanged by git to specific application
+ -------------------------------------------------
+ 3 stages:
+ - working directory: holds all the application files
+ - /.git folder (commit): contains the repository (manages all the finalzied changes and version histroy)
+ - staging area (index): temporary area that is not commited to the /.git folder
+ 
+ - all these 3 stages consist of a remote and once it is not remote, you push it to the centralized server. 
+ - default branch in git is called - master - seen in the /.git folder
+-------------------------------------------------
+ Lesson 1: Starting with Github and project setup:
+ preparing local system: user home directory : ~$pwd, mkdir project, cd project, pwd (to show directory)
+ 
+ - use [~$ git version] to show git is installed
+ 
+ - setting up user id , email and showing the list in git bash
+   : ~$ git config --global user.name "f9w0b"
+   : ~$ git config --global user.email "gcxmoffice1994@gmail.com"
+   : ~$ git config --global --list //show edited list 
+ 
+ //cloning a repo - select https url and copy to clipboard menu to clone the repository
+ - go into gitbash and clone using git clone 
+   : ~$ git clone https://github.com/f9w0b/repo-example.git
+ - confirm clone repo by typing "ls" and also "cd" and "ls" into cloned repo 
+   : ~$ cd repo-example
+ - use git status to see whether you local repo is up-to-date with the remote repo
+   : ~$ git status  
+ - used cd\ to go up one level in the main directory
+	: ~$ cd\
+- you can add a text file with text like this....
+   : ~$ echo "test git quick start demo" >> start_text.txt
+- use cat command to display contents of the file 
+   : ~$ cat start_text.txt
+- use git status again to see that there are changes in your local repo and the changes are in working directory
+- add file to staging phase 
+	: ~$ git add start_text.txt
+- commit changes to .git folder in local repo and add a message 
+	: ~$ git commit -m "Adding start_text.txt file"
+- you can use git status to show that local repo is updated and it is ahead of the remote repo in github servers
+- to push your changes into github server push the repository with the branch name
+	- origin refers to github copy of our repo (not updated) and main refers to the updated branch  
+	: ~$ git push origin main {copy on github, copy on local}
+- proceed to type password and email id 
+
+//creating a git alias for notepad++
+- use the command [notepad++ .bash_profile]
+- add this line to make 'npp' as an alias [alias npp='notepad++.exe -multiInst -nosession']
+- exit and type 'npp' on github
+
+- use [cat ~/.gitconfig] to have a global configurator for all users
+- use [git config --global core.editor 'notepad++.exe -multiInst -nosession'] for editing the /.gitconfig file
+- use [git config --global -e] to open notepad++ and edit the .gitconfig file 
+- alt+f4 and type exit to get out of bash
+
+-------------------------------------------------
+//Lesson 2 creating a new Project
+- create new project directory under your projects directory
+	- ~$ : git init fresh-project_L2 
+- use list command to show all files and folders
+	- ~$ : ls -al 
+- after using the -al command go into the .git repo and ls to look at all the folders within the local(git) repo
+	- ~$ : cd .git 
+- create a file under the project folder by invoking notepad ++
+	- ~$ : npp sometxt.txt
+	- save text under npp
+- add file to git staging area 
+	- ~$ :git add sometxt.txt
+- commit file git commit and have notepad++ invoke to have the text message 
+-- (root commit) shows the first commit made
+    -  ~$ : git commit //notepad pops out 
+- use rm -rf command to delete a file
+	- ~$ : rm -rf sometxt.txt
+-------------------------------------------------
+//Lesson 3 adding git to an existing project (download zip file and create local repo)
+//- create a new project callled fresh-project-L3 in projects
+	//- ~$ : git init fresh-project_L3
+//- use git status to check on fresh-project_L3
+- download zip file from initilzr - http://www.initializr.com/
+- link the unzip file from the downloads into your projects folder
+	-  ~$ : unzip ~/Downloads/initializr-verekia-4.0.zip (~/ is ur directory == C:/Users/Gabriel)
+- ls shows initalzr folder 
+-  use mv to rename the folder from previous to new name 
+	-  ~$ : mv initializr web-project-new
+- add git soruce control to this folder by using the current folder at the working directory 
+	- ~$ git init 
+- use git status to check whether this has been put into staging area
+- use git add a period . to recursively add all the files 
+	- ~$ git add . 
+- git commit to repo 
+	- ~$ git commit -m "My commit for webproject # 1"
+- when deleting the project repo , delete the .git folder first before deleting the whole project folder 
+	- ~$ rm -rf .git and then (cd ..) and ... rm-rf web-project-new 	
+
+-------------------------------------------------
+//Lesson 4 joining an existing project
+- fork the repo (it should show the fork from id)
+- the repo should be copied over to your id and you can proceed to clone it
+	- ~$ git clone https://github.com/f9w0b/starter-web.git
+- use (clear) to clear up txt
+-------------------------------------------------
+//Lesson 5 commands recap - do a pull before a push
+- use a git pull before a git push to sync your local repo** with the existing remote repo** 
+- useful for working with a team 
+  ~$ git pull origin master (remote - local)
+- proceed to push after pull 
+  ~$ git push origin master (remote - local)
+-------------------------------------------------
+ // Lesson 6 keeping a track of tracked files  
+ - when editing a previous file use your word editor 
+	~$ npp new_text.txt
+ - you can do a git commit and a git add at the same time (>staging>local repo)
+	~$ git commit -am "second commit for newtext_text"
+ - use git ls file command to see files that a tracked by files that are trakcing in the staging or git repo stages
+	~$ git ls-files 
+ 
+------------------------------------------------- 
+ // Lesson 7 - 
+ - the staging area of the git repo keeps track of changes files, any files that are edited but have been staged will require a re-add
+ - to the staging / index area before commit to the /.git folder
+------------------------------------------------- 
+ // Lesson 8 recursive add 
+ - use -p in mkdir to make or declare a nested directory
+   ~$ mkdir -p level1/level2/level3/level4 
+ - use cd ../../.. to cd directories upwards
+   ~$  cd ../
+ - to add all the branch out directories use add .
+   ~$ git add .
+   
+// extra Lesson - 
+// switching branch - use  git checkout -b {branchname} to switch you checkout branch 
+// git push --set-upstream origin main
+//  git pull --rebase origin main
+// connecting a local repo with remote : ~$git remote add origin https://github.com/f9w0b/Anime_List.git
+-------------------------------------------------
+Lesson 9 - Backing out changes 
+- Unstaging: Backing out changes from the staging area and back to working directory
+    ~$ git restore --staged <FILENAME> OR git reset HEAD <FILENAME> //does not keep the old add.
+- Undo Commit: backing out commited files in the .git folder without changing your current working directory
+    ~$ git reset HEAD~	
+- Back to retrieving changes (NOT FILES) from the staging directory
+    ~ ~$ git restore --staged <FILENAME-RESTORED-INFO-staging-area> 
+- Back to retrieving (whole FILES) from the Commit .git branch or staging branch  
+	~$ git checkout -- <filename> 
+-------------------------------------------------
+Lesson 10 - renaming or removing files 
+- Renaming files changes the itenrary of the recorded files in the index and therefore you will need to commit, not add
+ ~$ git mv <old-name> <new-nametorename>
+- you can do the names vice-versa to revert back to it's old name, git status would show that now changes are made
+
+- You can move files to a different directory down
+  ~$ git mv <old-name.txt> <new-destination/> //remmeber to add slash
+  
+- You can move one directory up 
+  ~$ git mv <old-name.txt> .. 
+------------------------------------------------- 
+Lesson 11 - Deleting files 
+- deleting untracked files not commited or stages... don't use the "git" command 
+	~$ rm <filename> 
+- showing staging index files ***
+	~$ git ls-files
+- use git checkout to restore a file 
+	~$ git checkout -- <filename>
+- use rm -rf to remove folders with root structure 
+	~$ rm -rf <top_level_file_directory> 
+***NOTE*******
+**** when using git , you are removing the files from the index, without the git you are removing files from the working directory
+-------------------------------------------------
+Lesson 12 - Git History 
+- use $ git help <command> to show command
+s
+- default git log command shows the commit in rever chronological time order
+- commit branch, author, date
+	- ~$ git log ...or... ~$ git log --abbrev-commit
+********//type "Q" to exit 
+
+- better representation of git log in one-liner format
+	- ~$ git log --oneline --graph --decorate
+- specify branch range or date branch (date based searching) from # of days ago
+	- ~$ git log <branch #1>...<branch #2>
+	- ~$ git log --since="3 days ago" (in this example it is 3 days ago)
+- specifiy specific git history with a specific file 
+	- ~$ git log  -- <filename>
+		- for more specific directory
+			- ~$ git log --follow -- level1/level1/level2.txt <- (path directory)
+	
+- show speicific information for a git branch (shows author, date, commit messag, contents added)
+	~$ git show <commit id>
+-------------------------------------------------	
+Lesson 13 - Git Alias
+- enable a global alias configuration with git config (kind of of like a function)
+	~$ git config --global alias.<function_name> "<command>"
+	 - for this example we will create an alias called history...
+		~$ git config --global alias.history "log --all --graph --decorate --oneline"
+- you can use the .gitconfig file to access the history on npp
+		~$ npp ~/.gitconfig
+-------------------------------------------------
+Lesson 14 - excluding unwanted files from git repo
+- use ls -al to show all files and try to make a .gitignore file to make a list of ignored files
+	~$ npp .gitignore //new git ignore file made
+	~$ type "unwated.txt" or a list in each row for files to ignore
+- make sure to add the <.gitignore> file to the staging/index phase 
+
+- you can use "*" to omit a type of file in new list in gitignore, we can omit a type .log file here
+	~$ "*.log" in newline of .gitignore
+- you can also use the filename directory to ignore a whole root structure, we can ignore a file directoy named "root_directory" and its children
+	~$ "root_directory/" in new of git ignore
+	
+	Example:
+	- make a root_directory with child1/child2 children and move unwanted.txt file to child1/
+	~$ mkdir -p root_directory/child1/child2 
+	~$ mv unwanted.txt root_directory
+	~$ npp .gitignore ... & then... add ~$ "root_directory/"
+	~$ git commit -am "git add & commit for adding root_directory/ in .gitignore file" 
+-------------------------------------------------
+Lesson 15 - Cleanup and Back to origin
+- use "git pull origin <branch on local>" and "git push origin <branch on local>"
+- use the github website UI to look at the commits to made over the history of the forked repo 
+-------------------------------------------------
+Merging 
+
+Lesson 16 - 
+- P4 Merge is a visual merge & compare tool 
+- P4 Merge is a visual merge & compare tool 
+- add p4merge with environment variables
+
+Setting up merge tool with Git
+-$ git config --global merge.tool p4merge
+-$ git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+-$ git config --global mergetool.prompt false 
+Setting up diff tool with Git
+-$ git config --global diff.tool p4merge
+-$ git config --global difftool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+-$ git config --global difftool.prompt false 
+
+use 
+ - <git config --global --list> 
+or from editor 
+-  <git config --global -e> 
+....to see config folder with the diff and merge tool
+-------------------------------------------------
+Lesson 17
+- adding annotations to README - use # for title and ## for sub-heading
+- use git diff to compare difference between working directory and staging area
+
+- use git difftool to open a editor to compare
+  ~$ git diff & git difftool
+
+- use git diff/difftool HEAD to compare working directory and /.git (commit) repo file
+  ~$ git diff HEAD git difftool HEAD 
+
+- use git diff/difftool --staged HEAD to comapre between staging and /.git repo (commit) file   
+	~$ git diff --staged HEAD & git difftool --staged HEAD
+
+- use git diff/difftool -- <filename.filetype> to return the change between staging and working directory for specific file
+    ~$ git diff -- <filename.filetype>  & git difftool -- <filename.filetype>
+
+-------------------------------------------------
+Lesson 18 - comparing commits
+- standard git log commit
+	~$ git log --oneline 
+	
+- comparing commit changes in range from one specified commit id to another commit id
+	~$ git diff <branch_recentID> <branch_oldID>
+	~$ git difftool <branch_recentID> <branch_oldID>
+	//* for difftool you will be rolling through the changes one file at a time,
+	//press "Q" to feed in the next file
+
+- comparing most recent commit to one commit behind most recent 
+  ~$ git diff HEAD HEAD^ //* adding ^ reverts one head
+  ~$ git difftool HEAD HEAD^
+
+- comparing local repo with remote repo (on github)
+	~$ git difftool master origin/master.. or.. git diff HEAD origin/master 
+	~$ git diff master origin/master.. or .. git difftool HEAD origin/master 
+	//press Q to cycle through each file that has changed fixes
+	
