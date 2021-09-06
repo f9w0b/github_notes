@@ -152,7 +152,7 @@ Why source control:
  - to add all the branch out directories use add .
    ~$ git add .
    
-// extra Lesson - 
+// extra Lesson - ***********IMPORTANT
 // switching branch - use  git checkout -b {branchname} to switch you checkout branch 
 // git push --set-upstream origin main
 //  git pull --rebase origin main
