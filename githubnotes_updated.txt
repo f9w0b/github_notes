@@ -299,4 +299,5 @@ Lesson 18 - comparing commits
 	~$ git difftool master origin/master.. or.. git diff HEAD origin/master 
 	~$ git diff master origin/master.. or .. git difftool HEAD origin/master 
 	//press Q to cycle through each file that has changed fixes
-	/////
+
+//** Changing commit branches link - https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/ 
