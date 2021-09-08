@@ -336,5 +336,5 @@ Lesson 19 - Branches
  -Automatic merge (merging stuff on edited main branch and edited sub-branch)****
   - merging both the main branch changes with the master branch changes (adding -m)  
 	~$ git merge <changed-branch> -m "merging changes on secondary new-branch with changes in master branch"
-
+///
  
