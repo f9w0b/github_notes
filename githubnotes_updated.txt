@@ -301,3 +301,40 @@ Lesson 18 - comparing commits
 	//press Q to cycle through each file that has changed fixes
 
 //** Changing commit branches link - https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/ 
+-------------------------------------------------
+Lesson 19 - Branches 
+
+- ~$ use git status to view your working branch in sync with the remote repo branch 
+
+-list branches 
+	~$ git branch -a
+-make branch 
+	~$ git branch <newbranchname>
+-switch branch  
+    ~$ git checkout <branchnametoswitch>
+-change name of branch 
+	~$ git branch -m <oldbranchanem> <newbranchname> 
+-branch to delete	
+	~$ git branch -d <deletebranch> 
+-make new branch and switch to new branch
+	~$ git checkout -b <newbranchname>
+
+-when making changes to a new branch and then saving it and comparing it with the master
+ ~$ git diff <master-branch> <changed-branch>
+ ~$ git difftool <master-branch> <changed-branch>
+ 
+ - Fast foward merging changes between two branch after the command bash will show the changes. 
+ ~$ git merge <changed-branch> //only good for one branch in addition to the master
+ ~$ git log --oneline --graph --decorate --all
+ 
+ - Disable fast foward merge shows the branch-off status in a git log but does the same exact merge functionality
+ ~$ git merge <changed-branch> --no-ff  //only good for one branch in addition to the master
+ ~$ git log --oneline --graph --decorate --all //* better to use this  
+ 
+ *______/-----\_____*
+ 
+ -Automatic merge (merging stuff on edited main branch and edited sub-branch)****
+  - merging both the main branch changes with the master branch changes (adding -m)  
+	~$ git merge <changed-branch> -m "merging changes on secondary new-branch with changes in master branch"
+
+ 
