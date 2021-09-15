@@ -151,7 +151,7 @@ Why source control:
    ~$  cd ../
  - to add all the branch out directories use add .
    ~$ git add .
-   
+   //
 // extra Lesson - ***********IMPORTANT
 // switching new branch - use  git checkout -b {branchname} to switch you checkout branch 
 // git push --set-upstream origin main
@@ -337,4 +337,5 @@ Lesson 19 - Branches
   - merging both the main branch changes with the master branch changes (adding -m)  
 	~$ git merge <changed-branch> -m "merging changes on secondary new-branch with changes in master branch"
 ///
- 
+ Forever token
+ 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
