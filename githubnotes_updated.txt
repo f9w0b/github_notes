@@ -19,7 +19,7 @@ Why source control:
  - most operation can be local 
  
  What is Git: 
- 
+ yeah
  - can be used as a decentralized system and centralized systems(most people use it as a central server)
  - git can scale massively 
  
