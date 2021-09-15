@@ -338,5 +338,6 @@ Lesson 19 - Branches
 	~$ git merge <changed-branch> -m "merging changes on secondary new-branch with changes in master branch"
 ///
  Forever token
- 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
- sss
+ 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
+ 
+ dddd
